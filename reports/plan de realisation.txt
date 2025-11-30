@@ -1,0 +1,99 @@
+Plan de réalisation du projet 
+
+   1. Définition de la problématique 
+
+  Détecter automatiquement les attaques réseau.
+  Utiliser le Machine Learning pour classifier “normal” ou “attaque”.
+
+  
+  2. Choix du dataset 
+
+  Sélection du dataset NSL-KDD sur Kaggle.
+  Dataset adapté à la détection d’intrusion.
+  Données annotées : normal / types d’attaques.
+
+  
+   3. Chargement des données 
+
+  Importation du fichier CSV via Pandas.
+  Vérification des dimensions et des premières lignes.
+
+  
+   4. Préparation des données 
+
+  Ajout des noms de colonnes manquants.
+  Nettoyage : suppression des doublons.
+  Encodage des variables catégorielles (LabelEncoder).
+  Création de la variable cible : normal = 0, attaque = 1.
+  Séparation en jeux d’entraînement et test.
+  Normalisation des variables (StandardScaler).
+
+  
+   5. Analyse exploratoire 
+
+  Comptage des classes (normal vs attaque).
+  Visualisation simple (pie chart, countplot).
+  Vérification de la distribution des features.
+
+   6. Entraînement des modèles 
+
+  Régression Logistique
+  Arbre de décision (DecisionTreeClassifier)
+  k-NN (KNeighborsClassifier)
+
+Pour chaque modèle :
+
+  Entraînement sur les données normalisées.
+  Prédiction sur le jeu de test.
+
+  
+   7. Évaluation des modèles 
+
+  Calcul des métriques :
+  Accuracy
+  Précision
+  Recall (sensibilité)
+  Spécificité
+  F1-Score
+  Matrice de confusion
+
+Comparaison des résultats des trois modèles.
+
+  
+   8. Interprétation et discussion 
+
+  Identifier le modèle le plus performant.
+  Expliquer les points forts et faibles de chaque modèle.
+  Analyser les erreurs de classification.
+  Vérifier l’équilibre entre précision et rappel.
+
+   9. Conclusion 
+
+ Résumé du modèle le plus efficace.
+ Pertinence du dataset.
+ Apport du Machine Learning pour la détection d’attaques.
+
+
+
+
+
+
+
+
+
+
+
+Le dataset NSL-KDD correspond directement à notre problématique : détecter des attaques réseau.
+
+Il contient du trafic normal et plusieurs types d’attaques.
+
+Il est déjà annoté, donc prêt pour la classification.
+
+C’est un dataset très utilisé en cybersécurité et en Machine Learning.
+
+Il est plus propre et mieux équilibré que l’ancien dataset KDD99.
+
+Il est de taille raisonnable et facile à utiliser sur Kaggle.
+
+Il fonctionne très bien avec les modèles que nous devons tester.
+
