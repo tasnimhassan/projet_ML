@@ -1,15 +1,48 @@
-from src.preprocessing import preprocess
-from src.models import logistic_regression, decision_tree, knn_model
-from src.evaluation import eval_model
+from src.data.load_data import load_train_test
+from src.preprocessing.preprocess import (
+    rename_columns, encode_categorical, create_target,
+    split_data, scale_data
+)
+from src.models.train_logreg import train_logistic_regression
+from src.models.train_tree import train_decision_tree
+from src.models.train_knn import train_knn
+from src.evaluation.evaluate import evaluate_model
+from src.visualization.plots import plot_confusion_matrix
 
-x_train, x_test, y_train, y_test, df = preprocess()
+print("Loading data...")
+df_train, df_test = load_train_test(
+    "data/raw/NSL_KDD_Train.csv",
+    "data/raw/NSL_KDD_Test.csv"
+)
 
-logr = logistic_regression(x_train, y_train)
-eval_model(logr, x_test, y_test, "Logistic Regression")
+df = rename_columns(df_train)
+df = encode_categorical(df)
+df = create_target(df)
 
-dt = decision_tree(x_train, y_train)
-eval_model(dt, x_test, y_test, "Decision Tree")
+x_train, x_test, y_train, y_test = split_data(df)
+x_train, x_test = scale_data(x_train, x_test)
 
-kn = knn_model(x_train, y_train)
-eval_model(kn, x_test, y_test, "KNN")
-df = pd.read_csv("data/raw/NSL_KDD_Train.csv")
+print("Training models...")
+
+logreg = train_logistic_regression(x_train, y_train)
+dtree = train_decision_tree(x_train, y_train)
+knn = train_knn(x_train, y_train)
+
+print("Evaluating...")
+
+res_log = evaluate_model(logreg, x_test, y_test)
+res_tree = evaluate_model(dtree, x_test, y_test)
+res_knn = evaluate_model(knn, x_test, y_test)
+
+print("\n--- Logistic Regression ---")
+print(res_log)
+
+print("\n--- Decision Tree ---")
+print(res_tree)
+
+print("\n--- KNN ---")
+print(res_knn)
+
+plot_confusion_matrix(res_log["confusion_matrix"], "LogReg Confusion Matrix")
+plot_confusion_matrix(res_tree["confusion_matrix"], "Decision Tree Confusion Matrix")
+plot_confusion_matrix(res_knn["confusion_matrix"], "KNN Confusion Matrix")
