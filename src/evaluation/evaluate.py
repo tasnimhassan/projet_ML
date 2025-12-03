@@ -6,9 +6,9 @@ def evaluate_model(model, x_test, y_test):
 
     return {
         "accuracy": accuracy_score(y_test, preds),
-        "precision": precision_score(y_test, preds),
-        "recall": recall_score(y_test, preds),
-        "specificity": recall_score(y_test, preds, pos_label=0),
-        "f1": f1_score(y_test, preds),
+        "precision": precision_score(y_test, preds, zero_division=0),
+        "recall": recall_score(y_test, preds, zero_division=0),
+        "specificity": recall_score(y_test, preds, pos_label=0, zero_division=0),
+        "f1": f1_score(y_test, preds, zero_division=0),
         "confusion_matrix": cm
     }

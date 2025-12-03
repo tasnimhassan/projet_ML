@@ -1,6 +1,11 @@
 from sklearn.neighbors import KNeighborsClassifier
+import pickle
 
 def train_knn(x_train, y_train):
-    knn = KNeighborsClassifier(n_neighbors=5)
-    knn.fit(x_train, y_train)
-    return knn
+    model = KNeighborsClassifier(n_neighbors=5)
+    model.fit(x_train, y_train)
+
+    # Sauvegarde
+    pickle.dump(model, open("models/knn_model.pkl", "wb"))
+
+    return model

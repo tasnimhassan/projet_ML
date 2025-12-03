@@ -1,5 +1,4 @@
 import seaborn as sns
-import numpy as np
 import matplotlib.pyplot as plt
 import os
 
@@ -10,13 +9,15 @@ def plot_confusion_matrix(cm, title, filename):
 
     fig, ax = plt.subplots(figsize=(6, 5))
 
-    sns.heatmap(cm,
-                annot=True,
-                fmt='d',
-                cmap="Reds",
-                xticklabels=['0', '1'],
-                yticklabels=['0', '1'],
-                ax=ax)
+    sns.heatmap(
+        cm,
+        annot=True,
+        fmt='d',
+        cmap="Reds",
+        xticklabels=['0', '1'],
+        yticklabels=['0', '1'],
+        ax=ax
+    )
 
     ax.set_title(title)
     ax.set_xlabel("Predicted")
@@ -24,9 +25,7 @@ def plot_confusion_matrix(cm, title, filename):
 
     # chemin final
     filepath = os.path.join(output_dir, filename + ".png")
-
     plt.savefig(filepath, dpi=300, bbox_inches="tight")
-    plt.show() 
-    plt.close()   # pour éviter les conflits
+    plt.close()
 
     print(f"Graphique sauvegardé : {filepath}")
