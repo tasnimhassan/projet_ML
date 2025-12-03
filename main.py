@@ -34,15 +34,17 @@ res_log = evaluate_model(logreg, x_test, y_test)
 res_tree = evaluate_model(dtree, x_test, y_test)
 res_knn = evaluate_model(knn, x_test, y_test)
 
-print("\n--- Logistic Regression ---")
+print("\n Logistic Regression")
 print(res_log)
 
-print("\n--- Decision Tree ---")
+print("\n Decision Tree")
 print(res_tree)
 
-print("\n--- KNN ---")
+print("\n KNN ")
 print(res_knn)
 
-plot_confusion_matrix(res_log["confusion_matrix"], "LogReg Confusion Matrix")
-plot_confusion_matrix(res_tree["confusion_matrix"], "Decision Tree Confusion Matrix")
-plot_confusion_matrix(res_knn["confusion_matrix"], "KNN Confusion Matrix")
+
+plot_confusion_matrix(res_log["confusion_matrix"], "Logistic Regression", "logreg_matrix")
+plot_confusion_matrix(res_tree["confusion_matrix"], "Decision Tree", "tree_matrix")
+plot_confusion_matrix(res_knn["confusion_matrix"], "KNN", "knn_matrix")
+

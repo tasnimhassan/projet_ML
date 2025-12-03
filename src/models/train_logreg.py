@@ -1,6 +1,6 @@
-from sklearn.tree import DecisionTreeClassifier
+from sklearn.linear_model import LogisticRegression
 
-def train_decision_tree(x_train, y_train):
-    tree = DecisionTreeClassifier(max_depth=15)
-    tree.fit(x_train, y_train)
-    return tree
+def train_logistic_regression(x_train, y_train):
+    model = LogisticRegression(max_iter=1500)
+    model.fit(x_train, y_train)
+    return model
