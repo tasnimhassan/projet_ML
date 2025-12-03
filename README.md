@@ -6,28 +6,28 @@ Le projet est inspirée de la structure Cookiecutter Data Science.
 Structure du projet
 
 nsl-kdd-project/
-│
+
 ├ data/
 │   ├ raw/                      données brutes
 │   │   ├ NSL_KDD_Train.csv
 │   │   └ NSL_KDD_Test.csv
 │   ├ processed/                 données nettoyées
-│
+
 ├ notebooks/
-│   ├ 01_exploration.ipynb      analyse exploratoire du dataset
-│   └ 02_modelisation.ipynb     essais et modèles
-│
+│   ├ 01_eda.ipynb              analyse exploratoire du dataset
+│   └ 02_modelisation.ipynb     
+
 ├ src/
 │   ├ data/
 │   │   └ load_data.py       chargement des données
 │   ├ preprocessing/
-│   │   └ preprocess.py      renommage, encodage, splits, scaling
+│   │   └ preprocess.py      
 │   ├ models/
 │   │   ├ train_logreg.py
 │   │   ├ train_tree.py
 │   │   └ train_knn.py       entraînement des modèles
-│   ├ evaluation/
-│   │   └ evaluate.py        métriques et scores
+    ├ evaluation/
+    │   └ evaluate.py        métriques et scores
 │   └ visualization/
 │       └ plots.py           graphiques et matrices de confusion
 │

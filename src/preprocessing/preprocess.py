@@ -38,3 +38,20 @@ def split_data(df):
 def scale_data(x_train, x_test):
     scaler = StandardScaler()
     return scaler.fit_transform(x_train), scaler.fit_transform(x_test)
+import pandas as pd
+
+def clean_data(df):
+    # 1) Renommer les colonnes automatiquement
+    df.columns = [f"col_{i}" for i in range(df.shape[1])]
+
+    # 2) Supprimer les lignes dupliquées
+    df = df.drop_duplicates()
+
+    # 3) Supprimer / remplir les valeurs manquantes
+    df = df.fillna(0)
+
+    # 4) Convertir les colonnes numériques quand c'est possible
+    for col in df.columns:
+        df[col] = pd.to_numeric(df[col], errors='ignore')
+
+    return df

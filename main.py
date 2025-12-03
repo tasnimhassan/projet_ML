@@ -59,3 +59,5 @@ print(res_knn)
 plot_confusion_matrix(res_log["confusion_matrix"], "Logistic Regression", "logreg_matrix")
 plot_confusion_matrix(res_tree["confusion_matrix"], "Decision Tree", "tree_matrix")
 plot_confusion_matrix(res_knn["confusion_matrix"], "KNN", "knn_matrix")
+
+enregister plot 
