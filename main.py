@@ -1,3 +1,6 @@
+import os
+os.makedirs("figures", exist_ok=True)
+
 from src.data.load_data import load_train_test
 from src.preprocessing.preprocess import (
     rename_columns, encode_categorical, create_target,
@@ -10,7 +13,13 @@ from src.evaluation.evaluate import evaluate_model
 from src.visualization.plots import plot_confusion_matrix
 
 # Import des fonctions EDA
-from src.visualization.eda import basic_info, value_counts_info, plot_pie_target
+from src.visualization.eda import (
+    basic_info,
+    value_counts_info,
+    plot_pie_target,
+    plot_dst_bytes_by_target,
+    plot_correlation_heatmap
+)
 
 print("Loading data...")
 
@@ -28,6 +37,8 @@ df = create_target(df)
 basic_info(df)
 value_counts_info(df)
 plot_pie_target(df)
+plot_dst_bytes_by_target(df)
+plot_correlation_heatmap(df)
 
 # Séparation et normalisation
 x_train, x_test, y_train, y_test = split_data(df)
@@ -45,7 +56,6 @@ res_log = evaluate_model(logreg, x_test, y_test)
 res_tree = evaluate_model(dtree, x_test, y_test)
 res_knn = evaluate_model(knn, x_test, y_test)
 
-
 print("\n  Logistic Regression  ")
 print(res_log)
 
@@ -59,5 +69,3 @@ print(res_knn)
 plot_confusion_matrix(res_log["confusion_matrix"], "Logistic Regression", "logreg_matrix")
 plot_confusion_matrix(res_tree["confusion_matrix"], "Decision Tree", "tree_matrix")
 plot_confusion_matrix(res_knn["confusion_matrix"], "KNN", "knn_matrix")
-
-enregister plot 

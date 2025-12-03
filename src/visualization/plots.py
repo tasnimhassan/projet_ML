@@ -26,6 +26,7 @@ def plot_confusion_matrix(cm, title, filename):
     filepath = os.path.join(output_dir, filename + ".png")
 
     plt.savefig(filepath, dpi=300, bbox_inches="tight")
+    plt.show() 
     plt.close()   # pour éviter les conflits
 
     print(f"Graphique sauvegardé : {filepath}")
