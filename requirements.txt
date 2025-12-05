@@ -4,4 +4,4 @@ scikit-learn
 seaborn
 matplotlib
 mlxtend
-streamlit
+streamlit 
