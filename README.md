@@ -1,6 +1,17 @@
-Guide d'utilisation
+Guide d'utilisation :
+URL du Dépôt : https://github.com/tasnimhassan/projet_ML.git
 
-nsl-kdd-project
+Branche de travail principale : main
+
+Étape 1 : Préparation et Clonage du Dépôt
+
+-Ouvrir le Terminal : Ouvrez votre terminal .
+-Cloner le code : Naviguez vers le répertoire où vous souhaitez stocker le projet, puis exécutez la commande git clone :
+-git clone https://github.com/tasnimhassan/projet_ML.git
+Accéder au dossier : Entrez dans le nouveau dossier du projet :
+
+Etape 2:
+
 tester le projet avec :
 python main.py ou py main.py 
 
