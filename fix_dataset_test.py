@@ -18,4 +18,4 @@ df = pd.read_csv("data/raw/NSL_KDD_Test.csv", header=None)
 df.columns = correct_cols
 
 df.to_csv("data/clean/NSL_KDD_Test_clean.csv", index=False)
-print("✔ Test clean créé.")
+print("✔  Test clean créé.")
