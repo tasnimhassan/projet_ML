@@ -5,7 +5,7 @@ def train_knn(x_train, y_train):
     model = KNeighborsClassifier(n_neighbors=5)
     model.fit(x_train, y_train)
 
-    # Sauvegarde
+  
     pickle.dump(model, open("models/knn_model.pkl", "wb"))
 
     return model

@@ -1,6 +1,6 @@
 import pandas as pd
 
-# Noms des colonnes NSL-KDD (41 features + label)
+# Noms des colonnes NSL-KDD 
 COLUMNS = [
     "duration", "protocol_type", "service", "flag",
     "src_bytes", "dst_bytes", "land", "wrong_fragment", "urgent",

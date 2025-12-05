@@ -20,9 +20,9 @@ cols = [
 
 df_small = df[cols + ["normal"]].copy()
 
-# -----------------------------------------
+
 # Encoder les colonnes texte
-# -----------------------------------------
+
 text_cols = ["tcp", "ftp_data", "SF"]
 
 encoder_dict = {}
@@ -32,29 +32,29 @@ for col in text_cols:
     df_small[col] = le.fit_transform(df_small[col].astype(str))
     encoder_dict[col] = le
 
-# -----------------------------------------
+
 # Encoder la cible (normal / attaque)
-# -----------------------------------------
+
 df_small["normal"] = (df_small["normal"] != "normal").astype(int)
 
 # X et y
 X = df_small[cols]
 y = df_small["normal"]
 
-# -----------------------------------------
+
 # Train/test split
-# -----------------------------------------
+
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
 
-# -----------------------------------------
-# Modèle
-# -----------------------------------------
+
+# Modèle LogisticRegression
+
 model = LogisticRegression(max_iter=500)
 model.fit(X_train, y_train)
 
-# -----------------------------------------
+
 # Sauvegarde du modèle et des encoders
-# -----------------------------------------
+
 pickle.dump(model, open("models/logreg_small.pkl", "wb"))
 pickle.dump(encoder_dict, open("models/encoders.pkl", "wb"))
 

@@ -7,7 +7,7 @@ import os
 os.makedirs("reports/figures", exist_ok=True)
 
 def basic_info(df):
-    print("\n--- Aperçu du Dataset ---")
+    print("\n--- Aperçu final du Dataset  ---")
     print(df.head())
     print("\n--- Types des colonnes ---")
     print(df.dtypes)
