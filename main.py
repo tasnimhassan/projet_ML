@@ -75,4 +75,4 @@ plot_confusion_matrix(res_knn["confusion_matrix"], "KNN", "knn_matrix")
 # Sauvegarde du modèle pour Streamlit
 import pickle
 pickle.dump(logreg, open("models/logreg_model.pkl", "wb"))
-print("\nModèle sauvegardé dans models/logreg_model.pkl")
+print("\n Modèle sauvegardé dans models/logreg_model.pkl")

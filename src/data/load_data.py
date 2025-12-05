@@ -18,7 +18,7 @@ COLUMNS = [
 ]
 
 def load_train_test(train_path, test_path):
-    # Charger les dataset avec les noms de colonnes corrects
+    #  Charger les dataset avec les noms de colonnes corrects
     df_train = pd.read_csv(train_path, names=COLUMNS)
     df_test = pd.read_csv(test_path, names=COLUMNS)
     return df_train, df_test

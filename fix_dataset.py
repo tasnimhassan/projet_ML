@@ -19,4 +19,4 @@ df = pd.read_csv("data/raw/NSL_KDD_Train.csv", header=None)
 df.columns = correct_cols
 
 df.to_csv("data/clean/NSL_KDD_Train_clean.csv", index=False)
-print("✔ Train clean créé.")
+print("✔  Train clean créé.")
